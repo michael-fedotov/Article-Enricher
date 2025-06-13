@@ -1,0 +1,15 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+.venv/
+
+# UV package manager
+uv.lock
+.uv/
+
+# Editor files
+.DS_Store
+*.swp
