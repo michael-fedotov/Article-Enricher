@@ -43,6 +43,7 @@ class DatabaseConnection:
         self._media_connection.close()
         self._links_connection.close()
 
+    # TODO dynamic improvement 
     def get_all_media(self) -> List[MediaItem]:
         """
         Fetch every record from the `images` table.
@@ -79,25 +80,6 @@ class DatabaseConnection:
 
         return images_and_videos
 
-
-    def get_all_links(self) -> List[VideoLinks]:
-        """
-        Fetch every record from the `videos` table.
-        """
-        sql = "SELECT id, url, title, description, tags FROM videos"
-        rows = self._links_connection.execute(sql).fetchall()
-        return [
-            MediaItem(
-                id=row["id"],
-                url=row["url"],
-                title=row["title"],
-                description=row["description"],
-                tags=(row["tags"].split(',')),
-            )
-            for row in rows
-        ]
-    
-
     def get_all_resources(self) -> List[Resources]:
         """
         Fetch every resource from the 'resources' table
@@ -129,5 +111,5 @@ if __name__ == "__main__":
     db.close()
 
     # pprint.pprint(all_media['images'])
-    # pprint.pprint(all_media['videos'])
-    pprint.pprint(all_links)
+    pprint.pprint(all_media['videos'])
+    # pprint.pprint(all_links)
