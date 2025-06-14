@@ -13,3 +13,5 @@ uv.lock
 # Editor files
 .DS_Store
 *.swp
+
+venv
